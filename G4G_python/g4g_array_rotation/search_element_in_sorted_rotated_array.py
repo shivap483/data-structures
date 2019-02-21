@@ -37,9 +37,9 @@ def findPivot(arr, low, high):
        
     
     
-ar=[5,6,7,1,2,3,4]
-n=1
-position=findElement(ar, n)
-print('found at position: ',position)
+ar=[7,1,2,3,4,5,6]
+n=7
+
+print('found at position: ',findElement(ar, n)+1)
         
         
