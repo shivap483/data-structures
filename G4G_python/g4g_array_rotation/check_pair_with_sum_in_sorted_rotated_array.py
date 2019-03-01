@@ -14,7 +14,7 @@ def findPivot(array):
 def hasPair(array,sum):
     n=len(array)
     l=findPivot(array)
-    r=l+1
+    r=(l+1)%n
     while(l!=r):
         s=array[l]+array[r]
         if(s==sum):
