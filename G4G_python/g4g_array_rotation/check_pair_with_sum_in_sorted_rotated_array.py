@@ -15,20 +15,25 @@ def hasPair(array,sum):
     n=len(array)
     l=findPivot(array)
     r=(l+1)%n
+    count=0
     while(l!=r):
         s=array[l]+array[r]
         if(s==sum):
-            return 1
+            count=count+1            
+            if r==(l+n-1)%n:
+                break
+            l=(n+l-1)%n
+            r=(r+1)%n
         elif(s>sum):
             l=(n+l-1)%n
         else:
             r=(r+1)%n
-    return 0
+    return count
         
-a=[10,45,-8,1,4,6]
-sum=5
+a=[10,18,45,-8,0,1,2,3,4,5,6,7]
+sum=7
 res=hasPair(a, sum)
-if res==1:
-    print('has pair')
+if res>=1:
+    print(res)
 else:
     print('no pair')
