@@ -5,6 +5,7 @@ Created on 11-Apr-2019
 '''
 
 
+
 class Node:
 
     def __init__(self, data):
