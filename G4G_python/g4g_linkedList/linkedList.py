@@ -19,7 +19,6 @@ class LinkedList:
             node=node.next
             print(node.data)
 
-
     def deleteNodeByValue(self, data):
         node=self.head
         while node.next!=None:
@@ -28,7 +27,6 @@ class LinkedList:
                 node.next=temp.next
                 break
             node=node.next
-
 
     def push(self,data):
         new_node=Node(data)
@@ -43,14 +41,33 @@ class LinkedList:
             self.head.next=temp.next
         return temp
 
-    def insert(self,i,data):
+    def insert(self,n,data):
         new_node=Node(data)
         temp=self.head
-        j=1
-        while(i!=j and temp.next!=None):
+        if(n==1):
+            new_node.next=self.head.next
+            self.head.next=new_node
+            return
+        for i in range (n-1):
             temp=temp.next
-            j+=1
-        temp=new_node
+        new_node.next=temp.next
+        temp.next=new_node
+
+    def lengthByiteration(self):
+        temp=self.head.next
+        i=0
+        while(temp):
+            temp=temp.next
+            i+=1
+        return i
+
+    def lengthByRecursion(self,node):
+        if(not node):
+            return 0
+        return 1+self.lengthByRecursion(node.next)
+
+    def getLength(self):
+        return self.lengthByRecursion(self.head.next)
 
 linkedList=LinkedList()
 linkedList.pop()
@@ -72,8 +89,9 @@ linkedList.printList()
 print ('')
 print(linkedList.pop().data)
 print ('')
-linkedList.insert(1,55)
+linkedList.insert(2,55)
 linkedList.printList()
 print ('')
-
+print(linkedList.lengthByiteration())
+print(linkedList.getLength())
 
