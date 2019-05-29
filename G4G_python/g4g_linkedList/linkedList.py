@@ -69,6 +69,30 @@ class LinkedList:
     def getLength(self):
         return self.lengthByRecursion(self.head.next)
 
+    def createLoop(self):
+        self.head.next.next.next.next.next=self.head.next
+        return
+
+    def detectLoop(self):
+        flag=0
+        slow=self.head.next
+        fast=self.head.next
+        while(slow and fast and fast.next and fast.next.next):
+            if(slow==fast and flag!=0):
+                print( 'found')
+                count=1
+                slow=slow.next
+                while(slow!=fast):
+                    slow=slow.next
+                    count+=1
+                return count
+
+            slow=slow.next
+            fast=fast.next.next
+            flag=1
+        print('not found')
+
+
 linkedList=LinkedList()
 linkedList.pop()
 linkedList.append(9)
@@ -95,3 +119,5 @@ print ('')
 print(linkedList.lengthByiteration())
 print(linkedList.getLength())
 
+linkedList.createLoop()
+print(linkedList.detectLoop())
