@@ -1,4 +1,3 @@
-from _ast import If
 
 
 class stack():
